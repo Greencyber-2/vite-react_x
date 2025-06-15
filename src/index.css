@@ -295,6 +295,11 @@
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border-hr);
 }
+
+.prompt-form {
+  position: relative;
+}
+
 .prompt-form .prompt-input {
   width: 100%;
   height: 100%;
@@ -302,12 +307,30 @@
   outline: none;
   border: none;
   font-size: 1rem;
-  padding-left: 24px;
+  padding-left: 60px; /* فضای کافی برای دکمه ارسال */
+  padding-right: 24px; /* فاصله از راست */
   color: var(--color-text-primary);
+  text-align: right; /* متن از راست شروع شود */
+  direction: rtl; /* جهت نوشتن راست به چپ */
 }
+
+.prompt-form .prompt-input:not(:placeholder-shown) {
+  padding-left: 24px; /* هنگام تایپ فضای سمت چپ کم شود */
+  padding-right: 60px; /* فضای دکمه ارسال در سمت راست */
+}
+
 .prompt-form .prompt-input::placeholder {
   color: var(--color-text-placeholder);
+  text-align: right;
 }
+
+.prompt-wrapper .send-prompt-btn {
+  position: absolute;
+  right: 6px;
+  left: auto; /* دکمه همیشه در سمت راست ثابت بماند */
+  /* بقیه استایل‌های موجود... */
+}
+
 .prompt-wrapper .send-prompt-btn {
   width: 43px;
   height: 43px;
@@ -451,3 +474,280 @@
     font-size: 1rem
   }
 }
+
+/* استایل‌های جدید برای بخش تصاویر */
+.image-preview-container {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  overflow-x: auto;
+  margin-bottom: 8px;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+}
+
+.image-preview-item {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.image-preview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-hr);
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0;
+}
+
+.attach-image-btn {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-placeholder);
+  padding: 8px;
+  z-index: 1;
+}
+
+.attach-image-btn:hover {
+  color: var(--color-text-primary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* استایل‌های اصلی */
+.prompt-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.prompt-form-container {
+  position: relative;
+  width: 100%;
+}
+
+.prompt-form {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 54px;
+}
+
+.prompt-input {
+  width: 100%;
+  height: 100%;
+  padding-right: 100px;
+  padding-left: 24px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-hr);
+  border-radius: 130px;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  text-align: right;
+  direction: rtl;
+  outline: none;
+}
+
+.buttons-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 6px;
+  pointer-events: none;
+}
+
+.attach-image-btn,
+.send-prompt-btn {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attach-image-btn {
+  color: var(--color-text-placeholder);
+  padding: 8px;
+}
+
+.attach-image-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.send-prompt-btn {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #1d7efd;
+  color: white;
+  display: none;
+}
+
+.prompt-input:not(:placeholder-shown) ~ .buttons-container .send-prompt-btn {
+  display: flex;
+}
+
+.send-prompt-btn:hover {
+  background: #358cfd;
+}
+
+/* استایل‌های پیش‌نمایش تصاویر (بدون تغییر) */
+.image-preview-container {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  overflow-x: auto;
+  margin-bottom: 8px;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+}
+
+.image-preview-item {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.image-preview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-hr);
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0;
+}
+
+
+
+
+.prompt-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* محتواها رو به سمت راست بچسبون */
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+/* استایل‌های پیام */
+.message-content {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* استایل‌های دکمه‌های اقدام */
+.message-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: flex-end;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.message:hover .message-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border-hr);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.like-btn {
+  color: var(--color-text-secondary);
+}
+
+.like-btn.active, .like-btn:hover {
+  color: #10b981;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.dislike-btn {
+  color: var(--color-text-secondary);
+}
+
+.dislike-btn.active, .dislike-btn:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.copy-btn {
+  color: var(--color-text-secondary);
+}
+
+.copy-btn:hover {
+  color: #3b82f6;
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+

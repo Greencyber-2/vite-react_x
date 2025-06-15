@@ -113,15 +113,27 @@ const App = () => {
   };
   // Generate AI response
 // In App.jsx
+
+
+
+
+
+
+
   const generateResponse = async (conversation, botMessageId) => {
     // Format messages for API
     const formattedMessages = conversation.messages?.map((msg) => ({
       role: msg.role === "bot" ? "model" : msg.role,
-      parts: [{ text: msg.content }],
+      parts: msg.images 
+        ? [
+            { text: msg.content },
+            ...msg.images.map(image => ({ inlineData: { mimeType: "image/jpeg", data: image } }))
+          ]
+        : [{ text: msg.content }],
     }));
 
     try {
-      const workerUrl = 'https://ancient-boat-dd54.dns555104.workers.dev/'; // Replace with your Cloudflare Worker URL
+      const workerUrl = 'https://ancient-boat-dd54.dns555104.workers.dev/';
       const res = await fetch(workerUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -131,7 +143,6 @@ const App = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error?.message || 'Failed to fetch from Worker');
 
-      // Clean up response formatting
       const responseText = data.candidates[0].content.parts[0].text.replace(/\*\*([^*]+)\*\*/g, "$1").trim();
       typingEffect(responseText, botMessageId);
     } catch (error) {
@@ -139,6 +150,16 @@ const App = () => {
       updateBotMessage(botMessageId, error.message, true);
     }
   };
+
+
+
+
+
+
+
+
+
+
   // Update specific bot message
   const updateBotMessage = (botId, content, isError = false) => {
     setConversations((prev) =>
