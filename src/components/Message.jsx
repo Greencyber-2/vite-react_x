@@ -10,7 +10,6 @@ const Message = ({ message }) => {
   };
 
   if (isBot) {
-    // پیام‌های بات — با آواتار، حباب و دکمه‌های بازخورد
     return (
       <div
         id={message.id}
@@ -26,21 +25,19 @@ const Message = ({ message }) => {
           className="avatar"
           src="gemini.svg"
           alt="Bot Avatar"
-          // style={{ width: "32px", height: "32px", marginTop: "4px" }}
+          style={{
+            width: "48px",
+            height: "48px",
+            borderRadius: "50%",
+            marginTop: "4px"
+          }}
         />
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            flex: 1
-          }}
-        >
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", flex: 1 }}>
           <p className="text">{message.content}</p>
 
           {message.images?.length > 0 && (
-            <div style={{ marginTop: "8px" }}>
+            <div style={{ marginTop: "8px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {message.images.map((img, index) => (
                 <img
                   key={index}
@@ -49,15 +46,13 @@ const Message = ({ message }) => {
                   style={{
                     maxWidth: "200px",
                     borderRadius: "8px",
-                    border: "1px solid var(--color-border-hr)",
-                    marginRight: "8px"
+                    border: "1px solid var(--color-border-hr)"
                   }}
                 />
               ))}
             </div>
           )}
 
-          {/* دکمه‌ها فقط بعد از کامل شدن پاسخ نمایش داده می‌شن */}
           {!message.loading && message.content?.trim() !== "" && (
             <div
               className="message-actions"
@@ -115,17 +110,35 @@ const Message = ({ message }) => {
     );
   }
 
-  // پیام‌های کاربر — ساده، سمت راست مثل قبل
+  // پیام‌های کاربر با نمایش تصویر
   return (
     <div
       id={message.id}
       className={`message user-message ${message.loading ? "loading" : ""} ${message.error ? "error" : ""}`}
       style={{
         display: "flex",
-        justifyContent: "flex-end"
+        flexDirection: "column",
+        alignItems: "flex-end"
       }}
     >
       <p className="text">{message.content}</p>
+
+      {message.images?.length > 0 && (
+        <div style={{ marginTop: "8px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+          {message.images.map((img, index) => (
+            <img
+              key={index}
+              src={`data:image/jpeg;base64,${img}`}
+              alt={`Upload ${index}`}
+              style={{
+                maxWidth: "200px",
+                borderRadius: "8px",
+                border: "1px solid var(--color-border-hr)"
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
