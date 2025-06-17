@@ -109,7 +109,7 @@ const PromptForm = ({ conversations, setConversations, activeConversation, gener
           style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0 }}
         />
         <input 
-          placeholder="از Gemini بپرسید ..." 
+          placeholder="از Jinx بپرسید..." 
           className="prompt-input" 
           value={promptText} 
           onChange={(e) => setPromptText(e.target.value)} 

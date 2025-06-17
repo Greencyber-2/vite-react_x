@@ -23,7 +23,7 @@ const Message = ({ message }) => {
       >
         <img
           className="avatar"
-          src="gemini.svg"
+          src="gemini.png"
           alt="Bot Avatar"
           style={{
             width: "48px",
@@ -146,3 +146,5 @@ const Message = ({ message }) => {
 
 
 export default Message;
+
+
