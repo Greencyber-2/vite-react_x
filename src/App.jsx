@@ -122,7 +122,7 @@ const App = () => {
     }));
 
     try {
-      const workerUrl = 'https://ancient-boat-dd54.dns555104.workers.dev/';
+      const workerUrl = 'https://twilight-shape-806b.dns555104.workers.dev/';
       const res = await fetch(workerUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
