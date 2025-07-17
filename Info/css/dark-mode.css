@@ -1,0 +1,96 @@
+/* 😍بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِیمِ😍 */
+:root {
+    --primary-color: #8f94fb;
+    --secondary-color: #4e54c8;
+    --accent-color: #6a5acd;
+    --text-color: #f0f0f0;
+    --light-text: #f8f9fa;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body::before {
+    opacity: 0.03;
+}
+
+.header {
+    background-color: rgba(30, 30, 30, 0.95);
+}
+
+.header.scrolled {
+    background-color: rgba(30, 30, 30, 0.98);
+}
+
+.navbar a {
+    color: var(--text-color);
+}
+
+.theme-toggle .fa-moon {
+    opacity: 0;
+}
+
+.theme-toggle .fa-sun {
+    opacity: 1;
+}
+
+.section-subtitle {
+    color: #aaa;
+}
+
+.feature-card,
+.download-card,
+.products-tabs,
+.tab-content .tab-text,
+.app-window,
+.chat-container,
+.messenger-container {
+    background-color: #2a2a2a;
+    color: var(--text-color);
+}
+
+.feature-description,
+.tab-text p,
+.download-description,
+.command {
+    color: #bbb;
+}
+
+.app-content,
+.chat-messages,
+.messenger-content {
+    background-color: #1e1e1e;
+}
+
+.bot-message {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.chat-input,
+.messenger-tabs {
+    background-color: #333;
+}
+
+.messenger-tabs button {
+    color: #bbb;
+}
+
+.messenger-tabs button.active {
+    background-color: #1e1e1e;
+    color: var(--primary-color);
+}
+
+.footer {
+    background-color: #121212;
+}
+
+.footer-links a,
+.footer-contact li {
+    color: #bbb;
+}
+
+.footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.05);
+}
+/* به نام خویش کردم, ختم و پایان*/
