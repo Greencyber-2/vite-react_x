@@ -71,7 +71,7 @@ const Profile = ({ onClose }) => {
 
         {/* Team Signature */}
         <div className="team-signature">
-          <span>با ❤️ از تیم راکستار ام تی ای</span>
+          <span>با ❤️ از طرف جشنواره نوجونان خوارزمی</span>
           <small>نسخه ۱.۰.۰</small>
         </div>
       </div>
